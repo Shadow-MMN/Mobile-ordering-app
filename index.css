@@ -27,6 +27,7 @@ header h1 {
     top: 20px; 
     left: 20px; 
     font-size: 24px; 
+    display: block;
 }
 
 header p {
