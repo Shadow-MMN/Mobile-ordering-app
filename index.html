@@ -1,0 +1,50 @@
+<html>
+    <head>
+       <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+       <header>
+        <h1>Jimmy’s Diner</h1>
+        <p>The best burgers and pizzas in town.</p>
+        <img src="/hero-section.jpeg"
+         alt="A handburger with text next to it which says Jimmy's Dinner, the best burger and pizza in town"
+         class="hero-section"
+         >
+        </header> 
+        <main>
+            
+            <section id="oderable-items">
+            <!-- It is in the index.js -->
+            </section>
+
+            <section class="orders" id="orders">
+                <div class="hard-part">
+                   <h4>Your Order</h4> 
+                </div>
+                <div class="everything" id="everything">
+               
+                </div>
+                <button class="purchase-btn" id="purchase-btn">Complete Order</button>
+            </section>
+            <section class="card-details" id="card-details">
+                <h2>Enter Card Details</h2>
+                <form id="card-details-form">
+                <label for="name">Enter your name</label>
+                <input type="text" id="name" placeholder="Nnaji Miracle" required >
+                <label for="card-number">Enter your card number</label>
+                <input type="number" id="card-number" placeholder="4111 1111 1111 1111" required>
+                <label for="cvv">Enter your cvv</label>
+                <input type="number" id="cvv" placeholder="****" required>
+                <button class="payment-btn" id="payment-btn" type="submit">Pay</button>
+                </form>
+            </section>
+            <section id="last-text-container" class="last-text-container">
+                <div class="last-text" id="last-text"> </div>
+            </section>
+            
+        </main>
+        
+	<script src="index.js" type="module"></script>
+    </body>
+</html>
+

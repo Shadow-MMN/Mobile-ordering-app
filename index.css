@@ -1,0 +1,225 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+    width: 600px;
+} 
+
+/* layout */
+header{
+  width: 600px;
+  height: 167px;
+  color: white;
+  position: relative;
+}
+.hero-section{
+    width: 600px;
+    height: 167px;
+    display: block;
+}
+header h1,
+header p {
+    position: absolute; 
+    color: white; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+}
+
+header h1 {
+    top: 20px; 
+    left: 20px; 
+    font-size: 24px; 
+}
+
+header p {
+    top: 60px; 
+    left: 20px; 
+    font-size: 16px; 
+}
+.item-graphic{
+    font-size: 70px;
+}
+.item-title{
+    width: 43px;
+    height: 17px;
+    font-family: Smythe;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+    text-underline-position: from-font;
+    margin-bottom: 10px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item-description{
+    width: 358px;
+    height: 24px;
+    font-family: Smythe;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    text-underline-position: from-font;
+    color: #8B8B8B;
+    margin-top: 10px;
+}
+.item-price{
+    width: 19px;
+    height: 24px;
+}
+.item{
+    width: 508px;
+    height: 140px;
+    font-family: Smythe;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: black;
+    margin: 0 auto;
+    border-bottom: 1px solid #8B8B8B;
+}
+.add-btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #3C3C3C;
+    background: white;
+}
+.add-btn:hover{
+    background-color:  #3C3C3C;
+    color: white;
+    border: 1px solid white;
+}
+
+.orders{
+    width: 508px;
+    height: 319px;
+    margin: 0 auto;
+    
+}
+.hard-part h4{
+    width: 150px; 
+    font-family: Smythe;
+    font-size: 28px;
+    font-weight: lighter;
+    margin: 15px auto 0 auto;
+}
+
+.totaling{
+    display: flex;
+    justify-content: space-between;
+}
+.purchase-btn{
+    width: 100%;
+    color: white;
+    padding: 10px 20px;
+    background: #16DB99;
+    border: none;
+    display: none;
+}
+.card-details{
+ position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    width: 524px;
+    height: 542.24px;
+   border-radius: 5px;
+    box-shadow: 0px 0px 6px 2px #666;
+    background-color: white;
+    color: #757575;
+    border: 1.3px solid #757575;
+    display: none;
+    }
+.card-details h2{
+  text-align: center;
+}
+form{
+      display: flex;
+    flex-direction: column;
+}
+form label{
+    color: black;
+    width: auto;
+    margin: 0 auto;
+}
+form input{
+    margin: 20px;
+padding-right: auto;
+padding-left: 12px;
+padding-top: 5px;
+padding-bottom: 5px;
+border-radius: 5px;
+border: 1px solid black;
+}
+form button{
+    margin-top: 30px;
+     width: 90%;
+    color: white;
+    padding: 10px 20px;
+    background: #16DB99;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.last-text {
+    width: 504px;
+    height: 120px;
+    background: #D1FAE5;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+}
+.last-text h4{
+    color: #065F46;
+     padding: auto;
+    font-family: Smythe;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+    text-underline-position: from-font;
+}
+.order-text{
+    
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.remove-btn-container{
+    border: none;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+.oredered-html{
+    display: flex;
+    justify-content: space-between;
+}
+.order-price{
+    margin-top: 20px;
+}
+.line-after-ordering{
+    width: 100%;
+    margin: 0 auto;
+}
+.remove-btn{
+    border: none;
+    color: #8B8B8B;
+    font-size: 0.8rem;
+    background-color: white;
+    margin-top: 3px;
+}
+.last-text-container{
+    display: none;
+}
