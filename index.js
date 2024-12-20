@@ -10,29 +10,49 @@ const lastTextContainer = document.getElementById('last-text-container');
 const lastText = document.getElementById('last-text');
 const paymentBtn = document.getElementById('payment-btn');
 
+// Array to store selected orders
 let selectedOrders = [];
 
-// Event delegation
+// Event Listeners
 document.addEventListener('click', function (e) {
     if (e.target.dataset.id) {
         handleAddOrder(e.target.dataset.id);
-    } else if (e.target.classList.contains('remove-btn')) {
+    }
+    if (e.target.classList.contains('remove-btn')) {
         handleRemoveOrder(e.target.dataset.index);
-    } else if (e.target.id === 'purchase-btn') {
+    }
+    if (e.target.id === 'purchase-btn') {
         handlePurchase();
     }
 });
 
+// Handle payment button click
 paymentBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    handlePayment();
+    e.preventDefault(); // Prevent form submission from refreshing the page
+
+    // Grab form inputs directly
+    const nameInput = document.getElementById('name');
+    const name = nameInput.value; // Dynamically get the input value for "name"
+
+    // Hide unnecessary sections
+    cardDetails.style.display = 'none';
+    ordersSection.style.display = 'none';
+    everything.style.display = 'none'; // Hide the order list
+
+    // Display a thank-you message
+    lastTextContainer.style.display = 'block';
+    lastText.innerHTML = `<h4>Thanks ${name}, your order is on its way!<h4>`;
 });
 
-// Render menu items
+// Render the menu items
+renderOrderItem(menuArray);
+
+// Function to render the menu items
 function renderOrderItem(items) {
-    const itemsHtml = items.map((item) => {
+    let itemsHtml = '';
+    items.forEach((item) => {
         const { name, ingredients, id, price, emoji } = item;
-        return `
+        itemsHtml += `
         <div class="item">
             <div class="container">
                 <p class="item-graphic">${emoji}</p>
@@ -41,37 +61,37 @@ function renderOrderItem(items) {
                     <p class="item-description">${ingredients.join(', ')}</p>
                     <h3 class="item-price">$${price}</h3>
                 </div>
-                <button class="add-btn" data-id="${id}">+</button>
+                <button class="add-btn" id="add-btn" data-id="${id}">+</button>
             </div>
         </div>`;
-    }).join('');
+    });
     oderableItems.innerHTML = itemsHtml;
 }
 
-// Add order
+// Function to handle adding an order
 function handleAddOrder(orderId) {
     const targetOrderObj = menuArray.find((item) => item.id === Number(orderId));
-    if (targetOrderObj) {
-        selectedOrders.push(targetOrderObj);
-        renderOrderList();
-    }
+    selectedOrders.push(targetOrderObj);
+    renderOrderList();
 }
 
-// Remove order
+// Function to handle removing an order
 function handleRemoveOrder(index) {
-    if (index >= 0 && index < selectedOrders.length) {
-        selectedOrders.splice(index, 1);
-        renderOrderList();
-    }
+    selectedOrders.splice(index, 1);
+    renderOrderList();
 }
 
-// Render selected orders
+// Function to render the order list and total price
 function renderOrderList() {
-    const orderHtml = selectedOrders.map((order, index) => {
+    let orderHtml = '';
+    let totalPrice = 0;
+
+    selectedOrders.forEach((order, index) => {
         const { name, price } = order;
-        return `
-        <div class="ordered">
-            <div class="ordered-html">
+        totalPrice += price;
+        orderHtml += `
+        <div class="ordered" id="ordered">
+            <div class="oredered-html">
                 <div class="order-text">
                     <h2>${name}</h2>
                     <div class="remove-btn-container">
@@ -82,10 +102,9 @@ function renderOrderList() {
             </div>
         </div>
         <hr class="line-after-ordering">`;
-    }).join('');
+    });
 
-    const totalPrice = selectedOrders.reduce((acc, order) => acc + order.price, 0);
-
+    // Display orders and total price
     everything.innerHTML = `
         ${orderHtml}
         <div class="totaling">
@@ -93,27 +112,12 @@ function renderOrderList() {
             <p>$${totalPrice}</p>
         </div>`;
 
+    // Show or hide the purchase button
     purchaseBtn.style.display = selectedOrders.length > 0 ? 'block' : 'none';
 }
 
-// Handle purchase
+// Function to handle purchase button click
 function handlePurchase() {
     cardDetails.style.display = 'block';
-    lastTextContainer.style.display = 'none';
+    lastTextContainer.style.display = 'none'; // Ensure thank you message is hidden
 }
-
-// Handle payment
-function handlePayment() {
-    const nameInput = document.getElementById('name');
-    const name = nameInput.value;
-
-    cardDetails.style.display = 'none';
-    ordersSection.style.display = 'none';
-    everything.style.display = 'none';
-
-    lastTextContainer.style.display = 'block';
-    lastText.innerHTML = `<h4>Thanks ${name}, your order is on its way!</h4>`;
-}
-
-// Initial rendering of menu items
-renderOrderItem(menuArray);
