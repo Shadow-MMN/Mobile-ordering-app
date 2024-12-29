@@ -25,16 +25,10 @@ document.addEventListener('click', function (e) {
         handlePurchase();
     }
 });
-
-// Handle payment button click
-paymentBtn.addEventListener('click', function (e) {
-    e.preventDefault(); // Prevent form submission from refreshing the page
-
-    // Grab form inputs directly
-    const nameInput = document.getElementById('name');
-    const name = nameInput.value; // Dynamically get the input value for "name"
-
-    // Hide unnecessary sections
+document.getElementById("card-details-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    
     cardDetails.style.display = 'none';
     ordersSection.style.display = 'none';
     everything.style.display = 'none'; // Hide the order list
@@ -43,6 +37,7 @@ paymentBtn.addEventListener('click', function (e) {
     lastTextContainer.style.display = 'block';
     lastText.innerHTML = `<h4>Thanks ${name}, your order is on its way!<h4>`;
 });
+
 
 // Render the menu items
 renderOrderItem(menuArray);
